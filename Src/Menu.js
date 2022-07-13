@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Button, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, Button, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 export default function Menu({navigation}) {
 
@@ -15,22 +15,27 @@ export default function Menu({navigation}) {
                    <TouchableOpacity 
                    style={styles.botaumAgua}
                     onPress={() => navigation.navigate('Agua')}>
-
-                        <Text style={styles.Textobotaum}>Água</Text>
+                        <Image style={styles.imagembotaumAgua}
+                        source={require('./imagemagua.png')}
+                        ></Image>
                     </TouchableOpacity>  
 
                     <TouchableOpacity 
                    style={styles.botaumIMC}
                     onPress={() => navigation.navigate('Imc')}>
 
-                        <Text style={styles.Textobotaum}>IMC</Text>
+                    <Image style={styles.imagembotaumIMC}
+                        source={require('./imagenimc.png')}
+                        ></Image>
                     </TouchableOpacity>  
 
                     <TouchableOpacity 
                    style={styles.botaumCalorias}
                     onPress={() => navigation.navigate('Calorias')}>
 
-                        <Text style={styles.Textobotaum}>Carbidrato</Text>
+                       <Image style={styles.imagembotaumCarbo}
+                        source={require('./imagemKcal.png')}
+                        ></Image>
                     </TouchableOpacity>  
         </View>
     );
@@ -48,7 +53,7 @@ const styles = StyleSheet.create
 
     MenuDialogo:
     {
-        backgroundColor:'#37371f',
+        backgroundColor:'#5bb32c',
         textAlign:'center',
         alignItems:'center',
         padding:20,
@@ -84,31 +89,42 @@ const styles = StyleSheet.create
     {
         fontWeight:'bold',
         fontSize:20,
-        backgroundColor:'#0b4f6c',
-        padding:50,
-        paddingHorizontal:67,
+        backgroundColor:'#247ba0',
+        padding:10,
         margin:20,
         borderRadius:10,
     },
+
+    imagembotaumAgua:
+    {
+        width:100,
+        height:100,
+    },
+
+    imagembotaumIMC:
+    {
+        width:100,
+        height:100,
+    },
+
     botaumIMC:
     {
-        fontWeight:'bold',
-        fontSize:20,
-        backgroundColor:'#b80c09',
-        padding:50,
-        paddingHorizontal:75,
+        backgroundColor:'#a3320b',
+        padding:13,
         margin:20,
         borderRadius:10,
     },
     botaumCalorias:
     {
-        fontWeight:'bold',
-        fontSize:20,
-        backgroundColor:'#ea9010',
-        padding:40,
+        backgroundColor:'#001514',
+        padding:13,
         margin:20,
         borderRadius:10,
-        paddingVertical:50,
     },
-
+ 
+    imagembotaumCarbo:
+    {
+        width:100,
+        height:100,
+    },
 });

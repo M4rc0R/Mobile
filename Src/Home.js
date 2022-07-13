@@ -1,11 +1,15 @@
 import React from 'react';
-import {Text, View, Button, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, Button, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 export default function Home({navigation}) {
 
     return (
         <View style={styles.MainContainer}>
-            <Text style={styles.Logo}>Health.You</Text>
+           
+           <Image 
+           style={styles.Logo}
+           source={require('./logo.png')}
+           ></Image>
 
             <View style={styles.DialogoContainer}>
                 <Text style={styles.Titulo}>Bem-Vindo ao Health.You</Text>
@@ -37,16 +41,12 @@ const styles = StyleSheet.create
     },
     Logo:
     {
-        fontSize:48,
-        marginBottom:35,
-        fontWeight:'bold',
-        color:"#246eb9",
-        top:-50,
+        top: -20,        
     },
     DialogoContainer:
     {
-        backgroundColor:"#f06543",
-        padding:20,
+        backgroundColor:"#3cac6c",
+        padding:10,
         marginLeft:15,
         marginRight:15,
         borderRadius:10,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create
     },
     botaum:
     {
-        backgroundColor:'#4cb944',
+        backgroundColor:'#2caadc',
         padding:20,
         borderRadius:10,
     },

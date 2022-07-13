@@ -124,26 +124,27 @@ function validationML()
     {
         flex:1,
         width:"100%",
-        height:"100%",
-        backgroundColor:"#e6e6ea",
+        backgroundColor:"#edf2f4",
         alignItems:"center",
         borderTopLeftRadius:30,
         borderTopRightRadius:30,
         paddingTop:15,
-        marginTop:10,
+        marginTop:"20%",
         padding:10,
     },
 
     form:
     {
         width:"100%",
-        height:"auto",
+        height:"50%",
+        marginTop:"10%",
     },
     formLabel:
     {
        color:"#50514f",
-       fontSize:18,
+       fontSize:20,
        paddingLeft:20,
+       fontWeight:"bold"
     },
     
     formInput:
@@ -153,6 +154,7 @@ function validationML()
        backgroundColor:"#fffcff",
        height:40,
        margin:12,
+       marginTop:30,
        paddingLeft:10,
     },
     ButtonCalculator:
@@ -164,6 +166,7 @@ function validationML()
       backgroundColor:"#247ba0",
       padding:10,
       marginLeft: "25.5%",
+      marginTop:20,
     },
     TextbuttonCalculator:
     {
@@ -173,7 +176,7 @@ function validationML()
     errorMensage:
     {
        fontSize:12,
-       color:"#cbd4c2",
+       color:"#dc0000",
        fontWeight:"bold",
        paddingLeft:20,
     },
@@ -186,9 +189,9 @@ function validationML()
     },
     listML:
     {
-       backgroundColor:"#fff",
+       backgroundColor:"#edf2f4",
        padding:20,
-       marginTop:10,
+       marginTop:35,
        borderRadius:15,
        marginBottom:15,
     },
@@ -196,7 +199,7 @@ function validationML()
     {
        fontSize:25,
        color:"#111",
-       height:50,
+       height:30,
        width:"100%",   
     },
   })

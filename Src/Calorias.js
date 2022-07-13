@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Text, View, Button, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, Button, StyleSheet, TouchableOpacity, Modal, Alert, Pressable} from 'react-native';
 
 export default function Calorias({navigation}) {
 
@@ -7,13 +7,7 @@ export default function Calorias({navigation}) {
     return (
         <View style={styles.AguaContainer}>
             <View style={styles.InfoContainer}>
-                <Text style={styles.Titulo}>Para que serve o Carboidrato?</Text>
-                <Text style={styles.Texto}>Os carboidratos são as principais fontes de energia de uma célula, além de fazerem parte da composição 
-                de ácidos nucleicos e da
-                 parede celular. Chamados também de glicídios, hidratos de carbono e açúcares, essas substâncias 
-                são encontradas geralmente em alimentos de origem vegetal, como batatas e feijão, e apresentam em sua 
-                composição o carbono, hidrogênio e oxigênio. Podemos classificar os glicídios em três grupos, utilizando 
-                como critério seu tamanho e organização, são eles: monossacarídeos, dissacarídeos e polissacarídeos.</Text>
+                <Text style={styles.Texto}>Para iniciarmos o calculo primero você deve escolher abaixo a opção em que mais se assemelha ao seu objetivo</Text>
             </View>
            <TouchableOpacity  style={styles.botaumPP}
                     onPress={() => navigation.navigate('Calculo1')}>

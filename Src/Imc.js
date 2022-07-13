@@ -1,19 +1,77 @@
-import React from 'react';
-import {Text, View, Button, StyleSheet} from 'react-native';
+import React, {useState} from "react"
+import {Text, View, Button, StyleSheet, Modal, Alert, Pressable, Image} from 'react-native';
 import Form from './Forms_IMC/forms'
 
 
 export default function Imc() {
 
+const [modalVisit, setModdalVisit] = useState(false)
+
     return (
-        <View style={styles.AguaContainer}>
-            <View style={styles.InfoContainer}>
-                <Text style={styles.Titulo}>O que é Índice de massa corporal?</Text>
-                <Text style={styles.Texto}>O IMC é um cálculo simples que permite avaliar se a pessoa está dentro do peso que é considerado ideal 
-                para a sua altura. Também conhecido como Índice de Massa Corporal, o IMC é uma fórmula utilizada por vários 
-                profissionais de saúde, incluindo médicos, enfermeiros e nutricionistas, para saber, de uma forma rápida, 
-                se a pessoa precisa ganhar ou perder peso.</Text>
-            </View>
+        <View style={styles.ContainerPrincipal}>
+
+            <Modal
+            animationType='slide'
+            transparent={true}
+            visible={modalVisit}
+            onRequestClose=
+            {
+                () => {Alert.alert("Modal está oculto");
+                    setModdalVisit(!modalVisit);
+            }}
+            >
+                <View style={styles.ContainerSecundario}>
+                    <View style={styles.modalContainer}>
+                        <Text style={styles.TextoModal}>
+                        O IMC é reconhecido como padrão internacional para avaliar o
+                         grau de sobrepeso e obesidade. É calculado 
+                        dividindo o peso (em kg) pela altura ao quadrado (em metros).
+                        </Text>
+
+                        <Text style={styles.TituloTabela}>
+                        Tabela de Resultados
+                        </Text>
+                        
+                        <Text style={styles.TextoTabela}>
+                        Menor do que 18,5 = Abaixo do peso
+                        </Text>
+
+                        <Text style={styles.TextoTabela}>
+                        Entre 18,5 e 24,9 =  Peso normal
+                        </Text>
+
+                        <Text style={styles.TextoTabela}>
+                        Entre 25 e 29,9 = Acima do peso (sobrepeso)
+                        </Text>
+
+                        <Text style={styles.TextoTabela}>
+                        Entre 30 e 34,9 = Obesidade I
+                        </Text>
+
+                        <Text style={styles.TextoTabela}>
+                        Entre 35 e 39,9 = Obesidade II
+                        </Text>
+
+                        <Text style={styles.TextoTabela}>
+                        Maior do que 40 = Obesidade III
+                        </Text>
+
+                        <Pressable
+                        style={[styles.button, styles.botaoFechar]}
+                        onPress={() => setModdalVisit(!modalVisit)}
+                        >
+                        <Text style={styles.TextoFechar}>Continuar</Text>
+                        </Pressable>
+                    </View>
+                </View>
+            </Modal>
+            <Pressable
+            style={[styles.button, styles.botaoAbrir]}
+            onPress={() => setModdalVisit(true)}
+            >
+                <Text style={styles.TextoAbrir}>Como funciona o IMC?</Text>
+            </Pressable>
+            
 <Form></Form>
 
         </View>
@@ -22,32 +80,104 @@ export default function Imc() {
 
 const styles = StyleSheet.create
 ({
-    AguaContainer:
+    ContainerPrincipal:
     {
-        height:"100%",
-        backgroundColor:'#f6f7eb',
+        flex: 1,
+        justifyContent:"center",
+        backgroundColor:"#fff",
+        alignItems:"center",
     },
-    InfoContainer:
+
+    ContainerSecundario:
     {
-        marginTop:20,
-        marginLeft: 10,
-        marginRight: 10,
-        backgroundColor:'#e94f37',
+        flex: 1,
+        justifyContent:"center",
+        alignItems:"center",
+        marginTop:"70%",
+        marginLeft:20,
+        marginRight:20,
+        borderRadius:10,
+        backgroundColor:"#edf2f4",
+    },
+
+    modalContainer:
+    {
+        margin: 20,
+        backgroundColor:"#cfd6ea",
+        borderRadius: 20,
+        padding: 20,
+        height:"90%",
+        width:"90%",
+        alignItems: "center",
+    },
+    
+    botaoFechar:
+    {
+        backgroundColor: "#4d7ea8",
         padding:20,
-        borderRadius: 10,
-        lineHeight:40,
+        marginTop:30,
+        paddingVertical:25,
+        paddingHorizontal:30,
     },
-    Titulo:
+
+    botaoAbrir:
     {
+        backgroundColor: "#272932",
+        padding:20,
+        marginTop:45,
+        color:"#fff",
+        borderRadius:6,
+    },
+
+    TextoAbrir:
+    {
+        color:"#fff",
         fontSize:20,
-        color:'#cbf7ed',
-        marginBottom:15,
-        fontWeight:'bold',
+        fontWeight:"bold",
     },
-    Texto:
+
+    botaoFechar:
     {
-        fontSize:17,
-        color:'#cbf7ed',
-        lineHeight:26,
-    }
+        backgroundColor: "#272932",
+        padding:20,
+        marginTop:40,
+        color:"#fff",
+        borderRadius:6,
+    },
+
+    TextoFechar:
+    {
+        color:"#fff",
+        fontSize:20,
+        fontWeight:"bold",
+    },
+
+    button: {
+        borderRadius: 20,
+        padding: 10,
+      },
+
+      TextoModal:
+      {
+        textAlign:"left",
+        lineHeight:32,
+        fontSize:20,
+        marginBottom:20,
+        color:"#111",
+      },
+
+      TextoTabela:
+      {
+        textAlign:"left",
+        alignItems:"flex-start",
+        fontSize:15,
+        lineHeight:30,
+      },
+      TituloTabela:
+      {
+        fontSize:20,
+        fontWeight:"bold",
+        marginBottom:10,
+      }
+
 })

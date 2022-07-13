@@ -52,7 +52,7 @@ function validationImc()
     imcCalculator()
     setHeigth(null)
     setWeigth(null)
-    setMessageImc("Seu imc é igual: ")
+    setMessageImc("Seu imc é: ")
     setTextButton("Calcular novamente")
     setErrorMensage(null)
   }
@@ -129,26 +129,28 @@ function validationImc()
             flex:1,
              width:"100%",
              height:"100%",
-             backgroundColor:"#e6e6ea",
+             backgroundColor:"#edf2f4",
              alignItems:"center",
              borderTopLeftRadius:30,
              borderTopRightRadius:30,
              paddingTop:15,
-             marginTop:10,
+             marginTop:"20%",
              padding:10,
             },
     
             form:
             {
-                width:"100%",
-                height:"auto",
+              width:"100%",
+              height:"50%",
+              marginTop:"6%",
             },
     
             formLabel:
             {
-                color:"#111",
-                fontSize:18,
-                paddingLeft:20,
+              color:"#50514f",
+              fontSize:20,
+              paddingLeft:20,
+              fontWeight:"bold"
             },
     
             formInput:
@@ -157,7 +159,7 @@ function validationImc()
                 borderRadius:50,
                 backgroundColor:"#f6f6f6",
                 height:40,
-                margin:12,
+                margin:10,
                 paddingLeft:10,
             },
             ButtonCalculator:
@@ -181,7 +183,7 @@ function validationImc()
             errorMensage:
             {
                 fontSize:12,
-                color:"#d64045",
+                color:"#dc0000",
                 fontWeight:"bold",
                 paddingLeft:20,
             },
@@ -192,16 +194,16 @@ function validationImc()
             },
             listImcs:
             {
-                backgroundColor:"#fff7f8",
+                backgroundColor:"#edf2f4",
                 padding:20,
-                marginTop:10,
+                marginTop:150,
                 borderRadius:15,
                 marginBottom:15,
             },
             resultImcItem:
             {
                 fontSize:25,
-                color:"#2e282a",
+                color:"#111",
                 height:50,
                 width:"100%",
                 

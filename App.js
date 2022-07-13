@@ -35,14 +35,14 @@ export default function App() {
            options={{title:'Calculo de Água', 
            headerTitleAlign:'center', 
            headerTintColor:'#111', 
-           headerStyle:{backgroundColor:'#fffcff'}}}
+           headerStyle:{backgroundColor:'#fff'}}}
            />
 
           <Stack.Screen name="Imc" component={Imc}
            options={{title:'Índice de massa corporal', 
            headerTitleAlign:'center', 
            headerTintColor:'#111', 
-           headerStyle:{backgroundColor:'#f6f7eb'}}}
+           headerStyle:{backgroundColor:'#fff'}}}
            />
 
           <Stack.Screen name="Calorias" component={Calorias}

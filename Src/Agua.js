@@ -1,23 +1,45 @@
-import React from 'react';
-import {Text, View, Button, StyleSheet} from 'react-native';
+import React, {useState} from "react"
+import {Text, View, Button, StyleSheet, Modal, Alert, Pressable} from 'react-native';
 import Form from './Forms_Agua/form'
 
 export default function Agua() {
 
-    return (
-        <View style={styles.AguaContainer}>
-            <View style={styles.InfoContainer}>
-                <Text style={styles.Titulo}>Por é tão importante tomar água?</Text>
-                <Text style={styles.Texto}>Regula a temperatura do corpo; 
-                    Protege nossos órgãos vitais e os ajuda a absorver melhor os nutrientes; 
-                    Ajuda nosso metabolismo; 
-                    Protege e hidrata nossas articulações e células.</Text>
+const [modalVisit, setModdalVisit] = useState(false)
 
-                <Text style={styles.Titulo}>Como o calculo é feito?</Text>
-                <Text style={styles.Texto}>Na conta são considerados 35ml de água pelo peso corporal de cada pessoa. 
-                Veja o exemplo a seguir: 
-                72kg X 35ml = 2.520, ou seja, 2 litros e 520 ml /dia.</Text>
+    return (
+        <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisit}
+          onRequestClose={() => {
+            Alert.alert("Modal está oculto.");
+            setModdalVisit(!modalVisit);
+          }}
+        >
+          <View style={styles.centeredView2}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Nutricionistas afirmam que, com um simples cálculo ajuda a regular a 
+              quantidade de água necessária para o funcionamento do corpo. 
+              Na conta são considerados 35ml de água pelo peso corporal de cada pessoa. 
+              Veja o exemplo a seguir: 72kg X 35ml = 2.520, ou seja, 2 litros e 520 ml /dia.
+              </Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModdalVisit(!modalVisit)}
+              >
+                <Text style={styles.textStyle}>Entendi!</Text>
+              </Pressable>
             </View>
+          </View>
+        </Modal>
+        <Pressable
+          style={[styles.button, styles.buttonOpen]}
+          onPress={() => setModdalVisit(true)}
+        >
+          <Text style={styles.textStyle}>Como o calculo da água funciona?</Text>
+        </Pressable>
+      
 
 <Form></Form>
 
@@ -27,32 +49,60 @@ export default function Agua() {
 
 const styles = StyleSheet.create
 ({
-    AguaContainer:
-    {
-        height:"100%",
-        backgroundColor:'#fffcff',
-    },
-    InfoContainer:
-    {
-        marginTop:10,
-        marginLeft: 10,
-        marginRight: 10,
-        backgroundColor:'#247ba0',
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor:"#fff",
+      },
+
+      centeredView2: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop:"70%",
+        marginLeft:20,
+        marginRight:20,
+        borderRadius:10,
+        backgroundColor:"#edf2f4",
+      },
+
+      modalView: {
+        margin: 20,
+        backgroundColor:"#cfd6ea",
+        borderRadius: 20,
+        padding: 20,
+        height:"90%",
+        width:"90%",
+        alignItems: "center",
+      },
+      button: {
+        borderRadius: 20,
+        padding: 10,
+      },
+      buttonOpen: {
+        backgroundColor: "#272932",
         padding:20,
-        borderRadius: 10,
-        lineHeight:40,
-    },
-    Titulo:
-    {
+        marginTop:45,
+      },
+      buttonClose: {
+        backgroundColor: "#4d7ea8",
+        padding:20,
+        marginTop:30,
+        paddingVertical:25,
+        paddingHorizontal:30,
+      },
+      textStyle: {
+        color: "#fff",
+        fontWeight: "bold",
+        textAlign: "center",
         fontSize:20,
-        color:'#ffffff',
-        marginBottom:15,
-        fontWeight:'bold',
-    },
-    Texto:
-    {
-        fontSize:17,
-        color:'#ffffff',
-        lineHeight:26,
-    }
+      },
+      modalText: {
+        textAlign:"left",
+        lineHeight:32,
+        fontSize:20,
+        marginBottom:20,
+        color:"#111",
+          }
 })
